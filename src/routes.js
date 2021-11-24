@@ -24,6 +24,7 @@ import Maps from "views/Maps.js";
 import Notifications from "views/Notifications.js";
 import Upgrade from "views/Upgrade.js";
 import Users from "views/Users.js";
+import About from "views/About.js";
 
 const dashboardRoutes = [
   // {
@@ -48,13 +49,13 @@ const dashboardRoutes = [
     component: Users,
     layout: "/admin",
   },
-  {
-    path: "/user",
-    name: "User Profile",
-    icon: "nc-icon nc-circle-09",
-    component: UserProfile,
-    layout: "/admin",
-  },
+  // {
+  //   path: "/userprofile",
+  //   name: "User Profile",
+  //   icon: "nc-icon nc-circle-09",
+  //   component: UserProfile,
+  //   layout: "/admin",
+  // },
   // {
   //   path: "/table",
   //   name: "Table List",
@@ -83,7 +84,13 @@ const dashboardRoutes = [
     component: Maps,
     layout: "/admin",
   },
-  // {
+  {
+    path: "/about",
+    name: "About",
+    icon: "nc-icon nc-quote",
+    component: About,
+    layout: "/admin",
+  },
   //   path: "/notifications",
   //   name: "Notifications",
   //   icon: "nc-icon nc-bell-55",
