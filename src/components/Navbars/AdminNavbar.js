@@ -195,10 +195,12 @@ function Header() {
             <Nav.Item>
               <Nav.Link
                 className="m-0"
-                href="#pablo"
+                href="http://localhost:3000/login"
                 onClick={(e) => e.preventDefault()}
               >
-                <span className="no-icon">Log out</span>
+                <a href="http://localhost:3000/login">
+                  <span className="no-icon">Log out</span>
+                </a>
               </Nav.Link>
             </Nav.Item>
           </Nav>

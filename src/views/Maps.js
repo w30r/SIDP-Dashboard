@@ -11,10 +11,11 @@ function Maps() {
     let lat = "4.385165126";
     let lng = "100.974496102";
     const myLatlng = new google.maps.LatLng(lat, lng);
+    const meor = new google.maps.LatLng(lng, lat);
     const mapOptions = {
       zoom: 10,
       center: myLatlng,
-      scrollwheel: false,
+      scrollwheel: true,
       zoomControl: true,
     };
 
@@ -23,13 +24,13 @@ function Maps() {
     const marker = new google.maps.Marker({
       position: myLatlng,
       map: map,
-      animation: google.maps.Animation.DROP,
-      title: "Light Bootstrap Dashboard PRO React!",
+      animation: google.maps.Animation.BOUNCE,
+      title: "Title",
     });
 
     const contentString =
-      '<div class="info-window-content"><h2>Light Bootstrap Dashboard PRO React</h2>' +
-      "<p>A premium Admin for React-Bootstrap, Bootstrap, React, and React Hooks.</p></div>";
+      '<div class="info-window-content"><h2>NAME HERE</h2>' +
+      "<p>Location here</p></div>";
 
     const infowindow = new google.maps.InfoWindow({
       content: contentString,
