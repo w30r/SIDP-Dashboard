@@ -2,15 +2,22 @@ import React from "react";
 
 // react-bootstrap components
 import { Badge, Button, Navbar, Nav, Container } from "react-bootstrap";
+import { useGetData } from "modules/queries";
 
-var LocationsForMap = [
-  [4.387223777842426, 100.96426093739933, "Meor", "#0001"],
-  [51.507351, -0.127758, "Syamil"],
-  [4.610976, 101.094695, "Name"],
-  [4.3819314200114405, 100.96962572867805, "Chancellor Hall"],
-];
+// var LocationsForMap = [
+//   [4.387223777842426, 100.96426093739933, "Meor", "#0001"],
+//   [51.507351, -0.127758, "Syamil"],
+//   [4.610976, 101.094695, "Name"],
+//   [4.3819314200114405, 100.96962572867805, "Chancellor Hall"],
+// ];
 
 function BetterMap() {
+  const { data: doto } = useGetData();
+  let LocationsForMap = [];
+  LocationsForMap = doto?.map(function (x) {
+    return [x.coords.lat, x.coords.lng, x.name, x.id];
+  });
+
   const mapRef = React.useRef(null);
   React.useEffect(() => {
     let google = window.google;
@@ -51,7 +58,13 @@ function BetterMap() {
         (function (marker, i) {
           return function () {
             infowindow.setContent(
-              LocationsForMap[i][2] + " " + LocationsForMap[i][3]
+              LocationsForMap[i][2] +
+                " #" +
+                LocationsForMap[i][3] +
+                " | " +
+                LocationsForMap[i][0] +
+                ", " +
+                LocationsForMap[i][1]
             );
             infowindow.open(map, marker);
           };

@@ -14,7 +14,7 @@ import {
 
 function TableList() {
   const { data: doto } = useGetData();
-  console.log(doto)
+  console.log(doto);
 
   return (
     <>
@@ -24,9 +24,7 @@ function TableList() {
             <Card className="strpied-tabled-with-hover">
               <Card.Header>
                 <Card.Title as="h4">Users</Card.Title>
-                <p className="card-category">
-                  List of all registered users
-                </p>
+                <p className="card-category">List of all registered users</p>
               </Card.Header>
               <Card.Body className="table-full-width table-responsive px-0">
                 <Table className="table-hover table-striped">
@@ -34,70 +32,35 @@ function TableList() {
                     <tr>
                       <th className="border-0">ID</th>
                       <th className="border-0">Name</th>
+                      <th className="border-0">Email</th>
                       <th className="border-0">O² (%)</th>
-                      <th className="border-0">Temp (°C) </th>
-                      <th className="border-0">State</th>
+                      <th className="border-0">Current temperature (°C) </th>
+                      <th className="border-0">Current heart rate (bpm) </th>
+                      <th className="border-0">Location</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {doto && doto.map(function(x) {
-                      return (
-                        <tr>
-                          <td>{x.id}</td>
-                          <td>{x.name}</td>
-                          <td>{x.oxy}</td>
-                          <td>{x.temp / 100}</td>
-                          <td>{x.state}</td>
-                        </tr>
-                      )
-                    })}
-                    {/* <tr>
-                      <td>1</td>
-                      <td>Dakota Rice</td>
-                      <td>$36,738</td>
-                      <td>Niger</td>
-                      <td>Oud-Turnhout</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Minerva Hooper</td>
-                      <td>$23,789</td>
-                      <td>Curaçao</td>
-                      <td>Sinaai-Waas</td>
-                    </tr>
-                    <tr>
-                      <td>3</td>
-                      <td>Sage Rodriguez</td>
-                      <td>$56,142</td>
-                      <td>Netherlands</td>
-                      <td>Baileux</td>
-                    </tr>
-                    <tr>
-                      <td>4</td>
-                      <td>Philip Chaney</td>
-                      <td>$38,735</td>
-                      <td>Korea, South</td>
-                      <td>Overland Park</td>
-                    </tr>
-                    <tr>
-                      <td>5</td>
-                      <td>Doris Greene</td>
-                      <td>$63,542</td>
-                      <td>Malawi</td>
-                      <td>Feldkirchen in Kärnten</td>
-                    </tr>
-                    <tr>
-                      <td>6</td>
-                      <td>Mason Porter</td>
-                      <td>$78,615</td>
-                      <td>Chile</td>
-                      <td>Gloucester</td>
-                    </tr> */}
+                    {doto &&
+                      doto.map(function (x) {
+                        return (
+                          <tr>
+                            <td>{x.id}</td>
+                            <td>{x.name}</td>
+                            <td>{x.email}</td>
+                            <td>{x.oxy}</td>
+                            <td>{x.temp[x.temp.length - 1]}</td>
+                            <td>{x.hrate[x.hrate.length - 1]}</td>
+                            <td>
+                              {x.coords.lat}, <tr>{x.coords.lng}</tr>
+                            </td>
+                          </tr>
+                        );
+                      })}
                   </tbody>
                 </Table>
               </Card.Body>
             </Card>
-          </Col>          
+          </Col>
         </Row>
       </Container>
     </>

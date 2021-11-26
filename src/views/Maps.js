@@ -11,7 +11,6 @@ function Maps() {
     let lat = "4.385165126";
     let lng = "100.974496102";
     const myLatlng = new google.maps.LatLng(lat, lng);
-    const meor = new google.maps.LatLng(lng, lat);
     const mapOptions = {
       zoom: 10,
       center: myLatlng,
