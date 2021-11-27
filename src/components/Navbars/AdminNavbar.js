@@ -198,9 +198,7 @@ function Header() {
                 href="http://localhost:3000/login"
                 onClick={(e) => e.preventDefault()}
               >
-                <a href="http://localhost:3000/login">
-                  <span className="no-icon">Log out</span>
-                </a>
+                <a href="http://localhost:3000/login">Log out</a>
               </Nav.Link>
             </Nav.Item>
           </Nav>

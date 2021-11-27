@@ -61,13 +61,6 @@ const dashboardRoutes = [
   //   layout: "/admin",
   // },
   // {
-  //   path: "/icons",
-  //   name: "Icons",
-  //   icon: "nc-icon nc-atom",
-  //   component: Icons,
-  //   layout: "/admin",
-  // },
-  // {
   //   path: "/maps",
   //   name: "Maps",
   //   icon: "nc-icon nc-pin-3",
@@ -94,6 +87,13 @@ const dashboardRoutes = [
   //   component: Notifications,
   //   layout: "/admin",
   // },
+  {
+    path: "/icons",
+    // name: "Icons",
+    // icon: "nc-icon nc-atom",
+    component: Icons,
+    layout: "/admin",
+  },
 ];
 
 export default dashboardRoutes;

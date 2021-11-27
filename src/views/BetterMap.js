@@ -10,12 +10,20 @@ import { useGetData } from "modules/queries";
 //   [4.610976, 101.094695, "Name"],
 //   [4.3819314200114405, 100.96962572867805, "Chancellor Hall"],
 // ];
+function twodeconly(x) {
+  return x.toFixed(3);
+}
 
 function BetterMap() {
   const { data: doto } = useGetData();
   let LocationsForMap = [];
   LocationsForMap = doto?.map(function (x) {
-    return [x.coords.lat, x.coords.lng, x.name, x.id];
+    return [
+      `${twodeconly(x.currentcoords.lat)}`,
+      twodeconly(x.currentcoords.lng),
+      x.name,
+      x.id,
+    ];
   });
 
   const mapRef = React.useRef(null);
@@ -25,7 +33,6 @@ function BetterMap() {
     let lat = "4.385165126";
     let lng = "100.974496102";
     const myLatlng = new google.maps.LatLng(lat, lng);
-    const meor = new google.maps.LatLng(lng, lat);
     const mapOptions = {
       zoom: 10,
       center: myLatlng,
@@ -34,10 +41,6 @@ function BetterMap() {
     };
 
     map = new google.maps.Map(map, mapOptions);
-
-    const contentString =
-      '<div class="info-window-content"><h2>NAME HERE</h2>' +
-      "<p>Location here</p></div>";
 
     var infowindow = new google.maps.InfoWindow();
 

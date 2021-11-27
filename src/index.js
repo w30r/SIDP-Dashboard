@@ -20,7 +20,7 @@ import ReactDOM from "react-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-
+import { initializeApp } from "firebase/app";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/animate.min.css";
 import "./assets/scss/light-bootstrap-dashboard-react.scss?v=2.0.0";
@@ -29,6 +29,21 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 
 import AdminLayout from "layouts/Admin.js";
 import LoginLayout from "layouts/Login.js";
+
+export const firebaseConfig = {
+  apiKey: "AIzaSyAcwlgFZyeng5jPCYnj67DWt80Seto7D5E",
+  authDomain: "medicaltracking-18c2e.firebaseapp.com",
+  databaseURL:
+    "https://medicaltracking-18c2e-default-rtdb.asia-southeast1.firebasedatabase.app/",
+  projectId: "medicaltracking-18c2e",
+  storageBucket: "medicaltracking-18c2e.appspot.com",
+  messagingSenderId: "368420362938",
+  appId: "1:368420362938:web:af387bdb60f018062b0083",
+  measurementId: "G-R4W8R7VYJ4",
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 
 const queryClient = new QueryClient({
   defaultOptions: {
